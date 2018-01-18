@@ -8,4 +8,5 @@ class User extends BaseModel
     public $lastname;
     public $username;
     public $password;
+    public $email;
 }
