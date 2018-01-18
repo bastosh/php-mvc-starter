@@ -1,11 +1,5 @@
 <?php
 require_once __DIR__.'/../config/bootstrap.php';
 
-use RedBeanPHP\R;
-
-/**
- * @var $item \App\Model\Item
- */
-$item = R::dispense('item');
-$item->title = 'New item';
-echo ($item->title);
+$dispatcher = new \App\Services\Dispatcher();
+$dispatcher->dispatch();
