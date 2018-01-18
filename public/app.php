@@ -7,5 +7,5 @@ use RedBeanPHP\R;
  * @var $item \App\Model\Item
  */
 $item = R::dispense('item');
-$item->title = 'Agricola';
-R::store($item);
+$item->title = 'New item';
+echo ($item->title);
