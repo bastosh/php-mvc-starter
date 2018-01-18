@@ -13,3 +13,9 @@ define('DB_PASSWORD', '');
  * RedBean configuration
  */
 define('REDBEAN_MODEL_PREFIX', '\\App\\Model\\');
+
+/**
+ * App configuration
+ */
+define('DEFAULT_CONTROLLER', 'home');
+define('DEFAULT_ACTION', 'homepage');

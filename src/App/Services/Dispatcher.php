@@ -5,21 +5,30 @@ namespace App\Services;
 class Dispatcher
 {
     private $parameters;
+    private $viewer;
 
     public function __construct()
     {
         $this->parameters = $_GET;
+        $this->viewer = new Viewer();
     }
 
     public function dispatch()
     {
-        $controller = $this->parameters['controller'];
-        $action     = $this->parameters['action'];
-        $viewPath   = sprintf('../src/App/Views/%s/%s.html', $controller, $action);
+        $parameters = $this->extractControllerAndActionParameters();
+        $this->viewer->setParameters($parameters)->render();
 
-        if (!file_exists($viewPath)) {
-            throw new \Exception("view $viewPath not found");
+    }
+
+    private function extractControllerAndActionParameters()
+    {
+        if(isset($this->parameters['controller']) && isset($this->parameters['action'])) {
+            $controller = $this->parameters['controller'];
+            $action     = $this->parameters['action'];
+        } else {
+            $controller = DEFAULT_CONTROLLER;
+            $action     = DEFAULT_ACTION;
         }
-        echo file_get_contents($viewPath);
+        return array($controller, $action);
     }
 }
