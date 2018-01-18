@@ -10,6 +10,6 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', '');
 
 /**
- * Redbean configuration
+ * RedBean configuration
  */
-define('REDBEAN_MODEL_PREFIX', '\\App\\Model');
+define('REDBEAN_MODEL_PREFIX', '\\App\\Model\\');
